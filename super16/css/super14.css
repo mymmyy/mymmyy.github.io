@@ -1,0 +1,153 @@
+body{
+    background-color: paleturquoise;
+}
+
+
+/*定位置的div*/
+.back-div{
+    width: 100%;
+    height: 900px;
+    text-align: center;
+}
+
+.play-div{
+    width: 413px;
+    height: 600px;
+    box-shadow:-1px 1px 10px 1px #444;
+    background-color: ivory;
+    margin-left: 450px;
+    margin-top: 20px;
+
+
+}
+
+
+
+.play-title-div{
+    width: 100%;
+    height: 18%;
+    background-color: paleturquoise;
+}
+
+.main{
+    width: 99%;
+    height: 70%;
+    background-color: cadetblue;
+    border: 2px red solid;
+}
+.main img{
+    display: inline;
+}
+
+
+/*******方便定位的不显示的li*****/
+.main .no-show{
+    width:0px;
+    height: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.play-end-div{
+    width: 100%;
+    height: 12%;
+    /*background-color: blueviolet;*/
+}
+
+
+ul{
+    width: 100%;
+    height: 24.9%;
+    list-style-type: none;
+    margin:0; padding:0;
+}
+
+li{
+
+    float: left;
+    height: 99%;
+    width: 24.5%;
+
+
+    border: 1px paleturquoise solid;
+}
+
+
+
+/*******************上部分样式*******************/
+.right-init{
+    border: 2px #a17aff solid;
+    height: 90px;
+    width: 90px;
+    margin-right: 5px;
+    margin-top: 10px;
+    float: right;
+}
+
+
+
+.right-second{
+    border: 2px #a17aff solid;
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+    margin-top: 50px;
+    float: right;
+}
+
+
+
+img{
+    padding: 4px;
+    position: absolute;
+    display: none;
+
+    /*opacity: 100;*/
+}
+
+
+.right-second img{
+    left:710px;
+    top: 67px;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
+.right-init img{
+    left: 769px;
+    top: 27px;
+    width: 90px;
+    height: 90px;
+    padding: 5px;
+}
+
+.score{
+    width: 200px;
+    height: 100px;
+    font-size: 80px;
+    margin-top: 15px;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+
+}
+
+
+
+
+/*******************中间数字样式*************************/
+li img{
+    width: 90px;
+    height: 90px;
+    padding: 6px;
+}
+
+/*===================底部三个功能============================*/
+.play-end-div img{
+    margin-top: 5px;
+    margin-left: 10px;
+    position: relative;
+    display: inline;
+    width: 50px;
+}
