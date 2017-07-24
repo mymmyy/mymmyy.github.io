@@ -50,20 +50,31 @@ $(document).ready(function () {
     $(".play-end-div").find("img").click(function () {
         if ($(this).attr("src") == "img/break.png") {
             //破裂一个数字得点击事件
+
+            //先判断是否有显示的16个li中是否有img
+            if ($("ul img").length == 0) {
+                return;                 //没有数字快就不使用该功能
+            }
+
             $("ul img").css({"transform": "rotate(10deg)"});//可以被break的数字块旋转一下
             noWait = false;                                 //表示需要等待-次---使用在所有li的click事件中
             imgFlag = 1;
-            $("ul img").bind("click",mainNumImgClick);      //为所有可以被操作的数字块绑定事件
+            $("ul img").bind("click", mainNumImgClick);      //为所有可以被操作的数字块绑定事件
 
             //只有一次使用机会，使用完毕解除功能
             uploadClick(this);
 
         } else if ($(this).attr("src") == "img/copy.png") {
             //复制事件
+            //先判断是否有显示的16个li中是否有img
+            if ($("ul img").length == 0) {
+                return;                 //没有数字快就不使用该功能
+            }
+
             $("ul img").css({"transform": "rotate(10deg)"});//可以被copy的数字块旋转一下
             noWait = false;                                 //表示需要等待-次---使用在所有li的click事件中
             imgFlag = 2;                                    //执行标志位设置为2，表示执行copy
-            $("ul img").bind("click",mainNumImgClick);      //为所有可以被操作的数字块绑定事件
+            $("ul img").bind("click", mainNumImgClick);      //为所有可以被操作的数字块绑定事件
 
             //只有一次使用机会，使用完毕解除功能
             uploadClick(this);
@@ -87,11 +98,6 @@ $(document).ready(function () {
     });//三功能事件完
 
 
-
-
-
-
-
 });
 
 
@@ -107,7 +113,7 @@ function mainNumImgClick() {
         //表示等待选择执行copy的img
         var newImg = $(this).clone();                   //克隆当前需要复制的img
         newImg.css({"transform": "rotate(0deg)"});      //把新添加的数字快方向摆正，等待move然后append
-        numMove(newImg,rightTop,rightLeft,function () {
+        numMove(newImg, rightTop, rightLeft, function () {
             //回调函数中进行移除原来的预备数字
             rightReadyNum.children(":first").remove();
         });
@@ -116,17 +122,16 @@ function mainNumImgClick() {
         $("ul img").css({"transform": "rotate(0deg)"}); //把旋转的角度旋转回来
         imgFlag = 0;                                    //执行完毕标志位复位
 
-    } else {
-    }
+    } 
 }
 
 
 //每个li得click事件函数，便于解绑与重新绑定
 function liClick() {
     //先判断是否等待
-    if(!noWait){
+    if (!noWait) {
         // noWait = true;      //此次等待，下次则不用等待，所以把标志位修改回来
-        if(imgFlag == 0){
+        if (imgFlag == 0) {
             noWait = true;
         }
         return;             //需要等待则结束本次事件
@@ -137,27 +142,24 @@ function liClick() {
         return false;
     }
 
-
-    var curNum = numMove(rightReadyNum.children(":first"), this.offsetTop, this.offsetLeft);
-    $(this).append(curNum);
+    numMove(rightReadyNum.children(":first"), this.offsetTop, this.offsetLeft);
+    $(this).append(rightReadyNum.children(":first"));
     readyMove();            //左边的数字右移动准备使用，并且生成新的准备数
 
     //每走一步得2分
-    addScore(2);
     removeSimilarAndCreateBiger(this);
+    addScore(2);
 
-    setTimeout(function () {
-        if (isGameover()) {
-            alert("游戏结束！你本局获得分数为：" + totalScore);
-        }
-    }, 0);
+     if (isGameover()) {
+         alert("游戏结束！你本局获得分数为：" + totalScore);
+    }
 }
 
 //============================函数定义============================
 
 //=================功能块只有一次使用机会，使用后不再接受点击事件
 function uploadClick(currentImg) {
-    $(currentImg).css({"opacity":0.5})
+    $(currentImg).css({"opacity": 0.5})
     $(currentImg).unbind("click");
 }
 
@@ -180,23 +182,23 @@ function removeSimilarAndCreateBiger(currentNum) {
         addScore(getImgNum($(currentNum)) * (allMerge.length)       //原有相加分数，在此基础之上乘幂数
             * (allMerge.length) * 2
         );
-        while (allMerge.length > 0) {
-            var curImg = allMerge.shift().children(":first");
+
+        var curImg = $(allMerge.shift()).children(":first")
+        run1(curImg, currentNum, allMerge);
+
+    }
+    
+}
 
 
-            numMove(curImg, currentNum.offsetTop, currentNum.offsetLeft, function () {
-                setTimeout(function () {
-                    curImg.remove();        //通过移动的回调函数--同步函数的执行顺序
-                }, 100);
+//====================合并运行=====================================
+function run1(curImg, currentNum, allMerge) {
 
-            });
+    numMove(curImg, currentNum.offsetTop, currentNum.offsetLeft, function () {
+        curImg.remove();        //通过回调函数移除当前移动的元素--同步函数的执行顺序
 
-
-        }
-
-
-        //移动完毕之后延时执行图片数加一切换，并且再次查看周围的情况是否需要合并
-        setTimeout(function () {
+        if (allMerge.length == 0) {
+            //移动完毕之后延时执行图片数加一切换，并且再次查看周围的情况是否需要合并
             var newNum = (getImgNum($(currentNum)) + 1);
             if (newNum > maxNum) {
                 maxNum = newNum;
@@ -206,12 +208,13 @@ function removeSimilarAndCreateBiger(currentNum) {
 
             var newSrc = "img/" + newNum + ".png";
             $(currentNum).children('img').attr("src", newSrc);
-        }, 100);
-        setTimeout(function () {
-            removeSimilarAndCreateBiger(currentNum);
-        }, 200);
 
-    }
+            removeSimilarAndCreateBiger(currentNum);
+        } else {
+            curImg = $(allMerge.shift()).children(":first")
+            run1(curImg, currentNum, allMerge);
+        }
+    });
 }
 
 
@@ -231,9 +234,8 @@ function createNumPic(initNum) {
         thisNum = Math.round(thisNum);
     }
 
-    var thisImg = $("<img src='img/" + thisNum + ".png' alt='" + thisNum + "'/>")
-
-    return thisImg;
+    // var thisImg = $("<img src='img/" + thisNum + ".png' alt='" + thisNum + "'/>");
+    return $("<img src='img/" + thisNum + ".png' alt='" + thisNum + "'/>");
 
 }
 
@@ -247,7 +249,6 @@ function createLeftReadyNum() {
 //num节点移动到指定位置
 function numMove(current, moveTOTop, moveToLeft, callback) {
     current.animate({left: moveToLeft, top: moveTOTop}, 100, "linear", callback);
-
     return current;             //仍然返回当前移动的节点
 }
 
@@ -311,7 +312,6 @@ function getImgNum(liNode) {
     }
     else
         return -1;
-
 }
 
 
@@ -320,8 +320,6 @@ function isGameover() {
     if ($(".main").find("img").length < 16) {
         return false;
     }
-
     return true;
-
 }
 
