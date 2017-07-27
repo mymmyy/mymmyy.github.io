@@ -70,6 +70,15 @@ $(document).ready(function () {
     //alert((window.location.href).substring(0,(window.location.href).indexOf("forward")+12)+$(".right-init").children(":first").attr("src"));
 
 
+    //图片预加载
+    //预加载图片
+    preloadImg(['../img/1.png','../img/2.png','../img/3.png','../img/4.png','../img/5.png','../img/6.png',
+        '../img/7.png','../img/8.png','../img/9.png','../img/10.png','../img/11.png','../img/12.png',
+        '../img/13.png','../img/14.png','../img/15.png','../img/16.png'
+    ]);  //参数是一个url数组
+
+
+
     //为所有的li绑定事件
     $("li").click(liClick);
 
@@ -78,6 +87,12 @@ $(document).ready(function () {
 
     //播放开始游戏的音乐
     useAudio(gameStart);
+
+    //设置分享按钮位置，靠右
+    $(".share-a").css({"left":(document.body.clientWidth)-60});
+
+
+
 
 
     //==========================截图保存事件========================
@@ -111,7 +126,7 @@ $(document).ready(function () {
             $(".share-div").fadeIn(500);
             isShowShareDiv = true;
         }
-    })
+    });
 
 
     //==========================分享至社交网站========================
@@ -121,6 +136,24 @@ $(document).ready(function () {
         content: '进入我的主页，一起来玩吧！',
         pic: (window.location.href).substring(0, (window.location.href).indexOf("forward") + 12) + $("#lastImg").attr("src")
     });
+
+
+
+    //===========================结束提示出现的重新游戏  和  取消事件=====
+    $(".game-end").find("a").eq(0).click(function () {
+        window.location.reload();
+        $(".game-end").fadeOut(500);
+    });
+
+
+    $(".game-end").find("a").eq(1).click(function () {
+        $(".game-end").fadeOut(500);
+    });
+
+
+    $(".reGame").click(function () {
+        window.location.reload();
+    })
 
 
     //==========================为底部三个功能绑定事件=================
@@ -355,8 +388,8 @@ function removeSimilarAndCreateBiger(currentNum) {
         //如果没有需要合并的方块再扫描是否已经结束游戏
         if (isGameover()) {
             useAudio(gameOver);         //播放结束音频
-
-            alert("游戏结束！你本局获得分数为：" + totalScore +"  刷新页面即可重新开始游戏");
+            $(".game-end").fadeIn(200);
+            //alert("游戏结束！你本局获得分数为：" + totalScore +"  刷新页面即可重新开始游戏");
         }
 
     }
@@ -568,6 +601,18 @@ function getSnapshoot(node) {
     });
 }
 
+
+
+//实现图片的预加载
+function preloadImg(srcArr){
+    console.log("yuchuli");
+    if(srcArr instanceof Array){
+        for(var i=0; i<srcArr.length; i++){
+            var oImg = new Image();
+            oImg.src = srcArr[i];
+        }
+    }
+}
 
 
 
