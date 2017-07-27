@@ -263,4 +263,78 @@ li img{
     font-size: 30px;
     float: right;
     position: fixed;
+
+
+}
+
+/*===============重来按钮：小屏幕版显示=============*/
+.reGame{
+    display: none;
+}
+
+
+/*=======================================结束弹窗样式===================*/
+.game-end{
+    position: absolute;
+    width: 350px;
+    height: 110px;
+    background-color: #444444;
+    text-align: center;
+    left: 490px;
+    top: 200px;
+    display: none;
+
+}
+
+.game-end p{
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.game-end a{
+    text-decoration: none;
+    font-size: 18px;
+    color: aquamarine;
+    padding: 20px;
+
+}
+
+
+
+
+/*====================================简单响应式配合手机端页面的显示=======================*/
+@media screen and (max-width:690px){
+
+    /*.share-div{
+        display: none;
+        width: 380px;
+        height: 200px;
+        background-color: cadetblue;
+        opacity: 0.7;
+        position: fixed;
+        border: 1px burlywood solid;
+        left: 900px;
+        top: 60px;
+
+
+    }*/
+
+
+    .share-a{
+        text-decoration: none;
+        left: 880px;
+        top: 280px;
+        font-size: 30px;
+        position: absolute;
+
+    }
+
+    .reGame{
+        display: inline;
+        text-decoration: none;
+        left: 880px;
+        top: 310px;
+        font-size: 30px;
+        position: absolute;
+    }
 }
