@@ -1,0 +1,238 @@
+/*对taobaoFile.html页面进行样式编辑*/
+
+body{
+    font-size: 12px;
+    color: gray;
+}
+div{
+    width: 1024px;
+    margin: auto;
+    /*border: 1px solid red;*/
+    width: 1024px;
+}
+.div-top{
+    background-image: url(../imgs/h_bg.jpg);
+    background-repeat: no-repeat;
+    height: 130px;
+}
+
+ul{
+    list-style-type: none;/*ul显示样式（小圆点等）*/
+}
+
+ul li{
+    float: left;
+}
+
+
+/********************第一个ul的编辑*****************/
+
+.ul1 .beginImg{
+
+    margin-left: 520px;
+}
+
+.ul1 li{
+    float: left;
+    margin-top: 10px;
+}
+
+.ul1 .img{
+    background-image: url("../imgs/icon.gif");
+    background-repeat: no-repeat;/*设置不平铺*/
+    background-position: -5px -5px;
+    line-height: 6px; ;
+    width: 20px;
+    height: 20px;
+}
+
+.ul1 .img2{
+    background-position: -31px -5px;
+}
+
+.ul1 .img3{
+    background-position: -31px -5px;
+}
+
+.ul1 .img4{
+    background-position: -59px -5px;
+}
+
+
+.ul1 .img5{
+    background-position: -3px -30px;
+    width: 39px;
+    /*height: 17px;*/
+    text-align: center;
+}
+
+
+/**************第二个ul****************/
+
+a:link{
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+a:hover {
+    background-image: url("../imgs/nav_bg.png");
+}	/* 鼠标移动到链接上 */
+
+a:active {
+    color: #0000FF
+}
+
+
+.div-top .ul2 a {
+    padding: 5px 14px;
+}
+
+
+.ul2{
+    margin-left: -20px;
+    margin-top: 102px;
+    position: absolute;
+    /*border: 4px mediumvioletred solid;*/
+
+}
+
+.ul2 li{
+    float: left;
+    width: 83px;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+    /*border: 1px royalblue solid;*/
+}
+
+.ul2 .last-search{
+    margin-left: 55px;
+    width: 60px;
+    height: 25px;
+}
+
+.ul2 .li-input{
+    width: 100px;
+    height: auto;
+}
+
+.ul2 li input{
+    width: auto;
+    height: auto;
+}
+
+
+/**************************主要商品内容div*****************************/
+.div-content{
+    background-image: url("../imgs/bg.gif");
+
+    height: 650px;
+    width: 100%;
+
+    margin-left: 23px;
+    background-repeat: no-repeat;
+
+}
+
+.div-content div{
+    float: left;
+}
+
+
+
+
+/****************左边商品导航**************/
+
+.div-left ul {
+    margin-left: -40px;
+    margin-top: 50px;
+}
+
+
+.div-content .div-left{
+    width: 198px;
+    height: 100%;
+
+}
+
+
+.div-left .div-left-title{
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    margin-top: -10px;
+
+
+}
+
+
+.div-left li{
+    width: 65px;
+    text-align: center;
+    margin-top: 7px;
+    font-size: 12px;
+
+}
+
+
+/************************中间banner****************************/
+
+.div-content .ad-banner{
+    margin-left: 10px;
+    width: 540px;
+}
+
+.div-content .ad-banner div{
+    margin-left: 10px;
+    width: 540px;
+}
+
+.div-content .ad-banner img{
+    margin-left: 1px;
+}
+
+
+
+.div-content .ad-banner .product{
+    width: 100%;
+    margin-left: 60px;
+    margin-top: 40px;
+}
+
+.product dl{
+    float: left;
+    width: 160px;
+}
+
+
+.product dl dd{
+    margin-left: -10px;
+}
+
+
+/**********************右边商品显示********************/
+.right-ad dl{
+    float: left;
+    width: 200px;;
+    height: 60px;
+}
+
+.right-ad{
+    margin-left: 30px;
+    margin-top: 180px;
+    width: 200px;;
+}
+
+.right-ad dl dt{
+    float: left;
+}
+
+.right-ad dl dd{
+    margin-left: 80px;
+    margin-top: 10px;
+}
+
+

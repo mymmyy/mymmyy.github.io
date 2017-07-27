@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/super14.css">
+    <link rel="stylesheet" href="css/share.css" type="text/css" />
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/super14.js"></script>
+    <script type="text/javascript" src="js/html2canvas.min.js"></script>
+    <script type="text/javascript" src="js/share.js"></script>
+    <!--<script type="text/javascript" src="js/signal.js"></script>-->
+
+    <!--<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["weixin","tsina","qzone","tqq"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","qzone","tqq"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>-->
+
+</head>
+<body>
+<div class="back-div">
+
+    <div class="play-div" id="play-div">
+        <div class="play-title-div">
+
+            <div class="right-init"></div>
+            <div class="right-second"></div>
+            <div class="score">2525</div>
+        </div>
+        <div class="main">
+            <ul>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+
+            <!--第一行-->
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="no-show"></li>
+
+                <li class="no-show"></li>
+
+            <!--第二行-->
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="no-show"></li>
+
+                <li class="no-show"></li>
+
+            <!--第三行-->
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="no-show"></li>
+
+                <li class="no-show"></li>
+            <!--第4行-->
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+                <li class="no-show"></li>
+            </ul>
+
+        </div>
+        <div class="play-end-div">
+            <img src="img/break.png" alt="">
+            <img src="img/copy.png" alt="">
+            <img src="img/recreate.png" alt="">
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<audio src="au/aMerge.mp3" class="aMerge-audio" preload id="merge-audio">
+    您的浏览器不支持声效 !
+</audio>
+<audio src="au/aMerge.mp3" class="aMerge1-audio" preload id="merge1-audio">
+    您的浏览器不支持声效 !
+</audio>
+<audio src="au/aMerge.mp3" class="aMerge2-audio" preload id="merge2-audio">
+    您的浏览器不支持声效 !
+</audio>
+<audio src="au/aMerge.mp3" class="aMerge3-audio" preload id="merge3-audio">
+    您的浏览器不支持声效 !
+</audio>
+
+<audio src="au/blockBreak.mp3" class="blockBreak-audio" preload id="break-audio">
+    您的浏览器不支持声效 !
+</audio>
+<audio src="au/copy.mp3" class="copy-audio" preload id="copy-audio">
+    您的浏览器不支持声效 !
+</audio>
+
+<audio src="au/gameStart.mp3" class="gameStart-audio" preload>
+    您的浏览器不支持声效 !
+</audio>
+
+<audio src="au/gameOver.mp3" class="gameOver-audio" preload>
+    您的浏览器不支持声效 !
+</audio>
+
+<audio src="au/clickFunction.mp3" class="clickFunction-audio" preload>
+    您的浏览器不支持声效 !
+</audio>
+
+<audio src="au/putBlock.mp3" class="putBlock-audio" preload>
+    您的浏览器不支持声效 !
+</audio>
+
+<audio src="au/recreate.mp3" class="recreate-audio" preload>
+    您的浏览器不支持声效 !
+</audio>
+
+
+
+<div class="create-img"> <button class="back-button">back</button>
+    <!--<button id="btn_clear">清除</button>
+
+    <button id="btn_submit">提交</button>-->
+    <p>你要保存的战绩截图--点击右上角back返回游戏</p>
+</div>
+<img src="" alt="a" id="lastImg">
+
+<a href="javascript:" class="share-a">分享</a>
+<div class="share-div">
+    <button class="create-button" style="">保存战绩</button> <span>点击&nbsp;分享&nbsp;隐藏/显示</span>
+    <br>
+    <a href="http://connect.qq.com/widget/shareqq/index.html?title=ARE YOU OK ! Come on!&url=https://mymmyy.github.io&desc=听说高智商的人才能合到14，合到16的那是天才！&pics=https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1264278801,3255385409&fm=58&u_exp_0=697245186,2922079999&fm_exp_0=86&bpow=320&bpoh=320&site=github&summary=听说高智商的人才能合到14，合到16的那是天才！" target="_blank">
+        <img src="img/shareToqq.png" alt="分享到QQ好友">
+    </a>
+    <br>
+    <div id="socialShare" class="ownDev"></div>
+</div>
+
+
+
+
+
+<!--待开发：截图签名-->
+<div id="canvasDiv"></div>
+
+<div  class="last-div"></div>
+
+</body>
+
+</html>

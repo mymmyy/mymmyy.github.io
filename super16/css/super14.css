@@ -33,7 +33,7 @@ body{
     width: 99%;
     height: 70%;
     background-color: cadetblue;
-    border: 2px red solid;
+    border: 2px mediumslateblue solid;
 }
 .main img{
     display: inline;
@@ -150,4 +150,117 @@ li img{
     position: relative;
     display: inline;
     width: 50px;
+}
+
+
+
+/*===================截图div================================*/
+.create-img{
+    position: absolute;
+    left: 280px;
+    top: 50px;
+    display: none;
+    background-color: cornflowerblue;
+    width: 750px;
+    height: 550px;
+    opacity: 0.9;
+    text-align: center;
+
+}
+
+.create-img p{
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    margin-top: 475px;
+    background-color: cadetblue;
+    opacity: 1;
+
+}
+
+.create-img a{
+    margin-left: 740px;
+    background-color: #e5e6e6;
+}
+
+.back-button {
+    background-color: turquoise;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin-left: 650px;
+    margin-top: 5px;
+    cursor: pointer;
+
+}
+
+#lastImg{
+    width: 350px;
+    height: 510px;
+    display: none;
+    left: 480px;
+    top: 60px;
+
+
+}
+
+
+/*========================================分享的样式===================*/
+.share-div{
+    display: none;
+    width: 380px;
+    height: 200px;
+    background-color: cadetblue;
+    opacity: 0.7;
+    position: fixed;
+    border: 1px burlywood solid;
+    left: 900px;
+    top: 60px;
+
+
+}
+
+
+.share-div button{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.share-div span{
+    font-size: 15px;
+    color: aquamarine;
+    margin-left: 160px;
+    top: 10px;
+    position: absolute;
+    opacity: 0.7;
+
+}
+
+.share-div a{
+    margin: 10px;
+}
+
+.share-div a img{
+    display: inline;
+    width: 54px;
+    padding: 0px;
+    position: relative;
+}
+
+.share-div div{
+    margin: 0px;
+}
+
+.share-a{
+    text-decoration:none;
+    left: 1270px;
+    top: 10px;
+    font-size: 30px;
+    float: right;
+    position: fixed;
 }
