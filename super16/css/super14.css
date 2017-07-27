@@ -305,7 +305,7 @@ li img{
 /*====================================简单响应式配合手机端页面的显示=======================*/
 @media screen and (max-width:690px){
 
-    /*.share-div{
+    .share-div{
         display: none;
         width: 380px;
         height: 200px;
@@ -313,18 +313,18 @@ li img{
         opacity: 0.7;
         position: fixed;
         border: 1px burlywood solid;
-        left: 900px;
+        left: 390px;
         top: 60px;
 
 
-    }*/
+    }
 
 
     .share-a{
         text-decoration: none;
-        left: 880px;
-        top: 280px;
-        font-size: 30px;
+        left: 380px;
+        top: 45px;
+        font-size: 25px;
         position: absolute;
 
     }
@@ -332,9 +332,9 @@ li img{
     .reGame{
         display: inline;
         text-decoration: none;
-        left: 880px;
-        top: 310px;
-        font-size: 30px;
+        left: 380px;
+        top: 30px;
+        font-size: 25px;
         position: absolute;
     }
 }
