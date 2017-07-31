@@ -21,6 +21,7 @@ var imgFlag = 0;      //ul中的img的标志：1表示等待选择break的img；
 var noWait = true;    //是否等待的标志位
 var imgShowTime = 600;//图片的显现时长
 var isShowShareDiv = false; //是否显示分享div
+var openVolume = false;;    //是否开启声音
 
 //====================音频元素定义==============
 var aMergeArray = [];//合并方块的音效数组：在多个数同时合并时循环调用几个音乐
@@ -32,6 +33,7 @@ var gameStart;      //游戏开始
 var clickFunction;  //点击功能按钮
 var putBlock;       //放置方块
 var recreate;       //重新生成方块
+
 
 
 //============================初始化与事件绑定=====================================
@@ -71,14 +73,17 @@ $(document).ready(function () {
 
 
     //图片预加载
-    //预加载图片
-    preloadImg(['../img/1.png','../img/2.png','../img/3.png','../img/4.png','../img/5.png','../img/6.png',
+    /*preloadImg(['../img/1.png','../img/2.png','../img/3.png','../img/4.png','../img/5.png','../img/6.png',
         '../img/7.png','../img/8.png','../img/9.png','../img/10.png','../img/11.png','../img/12.png',
     '../img/13.png','../img/14.png','../img/15.png','../img/16.png'
     ]);  //参数是一个url数组
-
-
+*/
+    //预加载图片
     preload();
+
+
+    //预先静音
+    volumeController(0.0);
 
 
 
@@ -93,6 +98,22 @@ $(document).ready(function () {
 
     //设置分享按钮位置，靠右
     $(".share-a").css({"left":(document.body.clientWidth)-60});
+
+
+
+    //===========================添加开启/关闭声音点击事件=====
+    $(".operate-volume").click(function () {
+        if($(this).html() == "打开声音"){
+            //打开声音
+            volumeController(1);
+            $(this).html("关闭声音");
+        }else if($(this).html() == "关闭声音"){
+            //关闭声音
+            volumeController(0.0);
+            $(this).html("打开声音");
+
+        }
+    });
 
 
 
@@ -156,6 +177,24 @@ $(document).ready(function () {
 
     $(".reGame").click(function () {
         window.location.reload();
+        /*$(".score").html(0);        //分重置
+
+        //重新产生两个预备数:先移除现有的两个，再重新生成
+        leftReadyNum.children(":first").remove();
+        rightReadyNum.children(":first").remove();
+
+        leftReadyNum.append(createNumPic());
+        rightReadyNum.append(createNumPic());
+        leftReadyNum.children(":first").show(imgShowTime);
+        rightReadyNum.children(":first").show(imgShowTime);
+
+        //清空场地
+        $(".main").find("img").remove();*/
+
+        //重新绑定功能
+
+
+
     })
 
 
@@ -235,6 +274,14 @@ $(document).ready(function () {
 
 //====================================================函数定义===================================================
 
+
+//游戏音量控制
+function volumeController(setVolume) {
+    var allAudio = document.getElementsByTagName("audio");
+    for(var i = 0; i < allAudio.length;i++){
+        allAudio[i].volume = setVolume;
+    }
+}
 
 
 
@@ -605,19 +652,23 @@ function getSnapshoot(node) {
 }
 
 
-
+/*
 //实现图片的预加载
 function preloadImg(srcArr){
-    console.log("yuchuli");
     if(srcArr instanceof Array){
         for(var i=0; i<srcArr.length; i++){
             var oImg = new Image();
             oImg.src = srcArr[i];
         }
     }
+}*/
+
+//======================实现预加载============
+function preload() {
+    for (var i = 1;i < 16;i++){
+        new Image().src = "img/"+i+".png";
+    }
 }
-
-
 
 
 //判断是否是IE
@@ -695,10 +746,5 @@ function qqZone() {
 
 
 
-//======================实现预加载============
-function preload() {
-    for (var i = 1;i < 16;i++){
-        new Image().src = "img/"+i+".png";
-    }
-}
+
 
