@@ -267,6 +267,16 @@ li img{
 
 }
 
+.operate-volume{
+    text-decoration: none;
+    left: 1215px;
+    top: 45px;
+    font-size: 30px;
+    float: right;
+    position: fixed;
+
+}
+
 /*===============重来按钮：小屏幕版显示=============*/
 .reGame{
     display: none;
@@ -311,10 +321,10 @@ li img{
         height: 200px;
         background-color: cadetblue;
         opacity: 0.7;
-        position: absolute;
+        position: fixed;
         border: 1px burlywood solid;
-        left: 20px;
-        top: 80px;
+        left: 390px;
+        top: 60px;
 
 
     }
@@ -322,8 +332,17 @@ li img{
 
     .share-a{
         text-decoration: none;
-        left: 370px;
-        top: 50px;
+        left: 380px;
+        top: 45px;
+        font-size: 25px;
+        position: absolute;
+
+    }
+
+    .operate-volume{
+        text-decoration: none;
+        left: 320px;
+        top: 95px;
         font-size: 25px;
         position: absolute;
 
@@ -332,8 +351,8 @@ li img{
     .reGame{
         display: inline;
         text-decoration: none;
-        left: 370px;
-        top: 25px;
+        left: 380px;
+        top: 30px;
         font-size: 25px;
         position: absolute;
     }
