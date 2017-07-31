@@ -74,8 +74,11 @@ $(document).ready(function () {
     //预加载图片
     preloadImg(['../img/1.png','../img/2.png','../img/3.png','../img/4.png','../img/5.png','../img/6.png',
         '../img/7.png','../img/8.png','../img/9.png','../img/10.png','../img/11.png','../img/12.png',
-        '../img/13.png','../img/14.png','../img/15.png','../img/16.png'
+    '../img/13.png','../img/14.png','../img/15.png','../img/16.png'
     ]);  //参数是一个url数组
+
+
+    preload();
 
 
 
@@ -689,4 +692,13 @@ function qqZone() {
      window.open(_shareUrl,'width='+_width+',height='+_height+',top='+(screen.height-_height)/2+',left='+(screen.width-_width)/2+',toolbar=no,menubar=no,scrollbars=no,resizable=1,location=no,status=0');*/
 }
 
+
+
+
+//======================实现预加载============
+function preload() {
+    for (var i = 1;i < 16;i++){
+        new Image().src = "img/"+i+".png";
+    }
+}
 
